@@ -94,16 +94,6 @@ get_references : $(REFS)silva.v35.align\
 #
 ################################################################################
 
-# define the sff files...
-MOCK_SFF = mock1.sff mock2.sff mock3.sff
-MOUSE_SFF = mouse1.sff mouse2.sff mouse3.sff
-HUMAN_SFF = human1.sff human2.sff human3.sff
-SOIL_SFF = soil1.sff soil2.sff soil3.sff
-ALL_SFF = $(MOCK_SFF) $(MOUSE_SFF) $(HUMAN_SFF) $(SOIL_SFF)
-
-PATH_TO_SFF = $(addprefix data/enzyme1/enzyme1_,$(ALL_SFF))\
-				$(addprefix data/enzyme2/enzyme2_,$(ALL_SFF))
-
 #rename the sff files
 data/enzyme1/enzyme1_soil1.sff : data/enzyme1/208L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
 	cp $< $@
@@ -176,6 +166,16 @@ data/enzyme2/enzyme2_mock2.sff : data/enzyme2/622L.R_2015_02_05_14_50_42_user_C3
 
 data/enzyme2/enzyme2_mock3.sff : data/enzyme2/600L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
+
+# define the sff files...
+MOCK_SFF = mock1.sff mock2.sff mock3.sff
+MOUSE_SFF = mouse1.sff mouse2.sff mouse3.sff
+HUMAN_SFF = human1.sff human2.sff human3.sff
+SOIL_SFF = soil1.sff soil2.sff soil3.sff
+ALL_SFF = $(MOCK_SFF) $(MOUSE_SFF) $(HUMAN_SFF) $(SOIL_SFF)
+
+PATH_TO_SFF = $(addprefix data/enzyme1/enzyme1_,$(ALL_SFF))\
+				$(addprefix data/enzyme2/enzyme2_,$(ALL_SFF))
 
 
 PATH_TO_RAW_FASTA = $(subst sff,fasta,$(PATH_TO_SFF))
