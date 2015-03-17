@@ -95,32 +95,6 @@ get_references : $(REFS)silva.v35.align\
 ################################################################################
 
 # define the sff files...
-LONG_SFF = data/enzyme1/1267L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/144L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/174L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/187L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/208L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/212L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/355L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/411L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/559L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/600L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/622L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme1/731L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
-			data/enzyme2/1267L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/144L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/174L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/187L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/208L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/212L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/355L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/411L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/559L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/600L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/622L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
-			data/enzyme2/731L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
-
-
 MOCK_SFF = mock1.sff mock2.sff mock3.sff
 MOUSE_SFF = mouse1.sff mouse2.sff mouse3.sff
 HUMAN_SFF = human1.sff human2.sff human3.sff
@@ -131,5 +105,91 @@ PATH_TO_SFF = $(addprefix data/enzyme1/enzyme1_,$(ALL_SFF))\
 				$(addprefix data/enzyme2/enzyme2_,$(ALL_SFF))\
 
 #rename the sff files
-$(PATH_TO_SFF) : $(LONG_SFF) code/copy_sff_files.sh
-	sh code/copy_sff_files.sh
+data/enzyme1/enzyme1_soil1.sff : data/enzyme1/208L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+    cp $@ $>
+
+data/enzyme1/enzyme1_soil2.sff : data/enzyme1/174L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+    cp $@ $>
+
+data/enzyme1/enzyme1_soil3.sff : data/enzyme1/144L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+    cp $@ $>
+
+data/enzyme1/enzyme1_mouse1.sff : data/enzyme1/731L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme1/enzyme1_mouse2.sff : data/enzyme1/355L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme1/enzyme1_mouse3.sff : data/enzyme1/187L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme1/enzyme1_human1.sff : data/enzyme1/411L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme1/enzyme1_human2.sff : data/enzyme1/212L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme1/enzyme1_human3.sff : data/enzyme1/1267L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme1/enzyme1_mock1.sff : data/enzyme1/559L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme1/enzyme1_mock2.sff : data/enzyme1/622L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme1/enzyme1_mock3.sff : data/enzyme1/600L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_soil1.sff : data/enzyme2/208L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_soil2.sff : data/enzyme2/174L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_soil3.sff : data/enzyme2/144L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_mouse1.sff : data/enzyme2/731L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_mouse2.sff : data/enzyme2/355L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_mouse3.sff : data/enzyme2/187L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_human1.sff : data/enzyme2/411L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_human2.sff : data/enzyme2/212L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_human3.sff : data/enzyme2/1267L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_mock1.sff : data/enzyme2/559L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_mock2.sff : data/enzyme2/622L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+data/enzyme2/enzyme2_mock3.sff : data/enzyme2/600L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+	cp $@ $>
+
+
+PATH_TO_RAW_FASTA = $(subst sff,fasta,$(PATH_TO_SFF))
+PATH_TO_RAW_QUAL = $(subst sff,qual,$(PATH_TO_SFF))
+PATH_TO_RAW_FLOW = $(subst sff,flow,$(PATH_TO_SFF))
+
+.SECONDEXPANSION:
+$(PATH_TO_RAW_FASTA) : $$(subst fasta,sff,$$@)
+	mothur "#sffinfo(fastq=$<)"
+
+.SECONDEXPANSION:
+$(PATH_TO_RAW_QUAL) : $$(subst qual,sff,$$@)
+	mothur "#sffinfo(fastq=$<)"
+
+.SECONDEXPANSION:
+$(PATH_TO_RAW_FLOW) : $$(subst flow,sff,$$@)
+	mothur "#sffinfo(fastq=$<)"
