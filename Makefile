@@ -102,7 +102,7 @@ SOIL_SFF = soil1.sff soil2.sff soil3.sff
 ALL_SFF = $(MOCK_SFF) $(MOUSE_SFF) $(HUMAN_SFF) $(SOIL_SFF)
 
 PATH_TO_SFF = $(addprefix data/enzyme1/enzyme1_,$(ALL_SFF))\
-				$(addprefix data/enzyme2/enzyme2_,$(ALL_SFF))\
+				$(addprefix data/enzyme2/enzyme2_,$(ALL_SFF))
 
 #rename the sff files
 data/enzyme1/enzyme1_soil1.sff : data/enzyme1/208L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
