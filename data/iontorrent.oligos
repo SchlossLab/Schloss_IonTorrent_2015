@@ -1,0 +1,13 @@
+forward TTCTCAACCCGTCAATTCMTTTRAGT
+barcode	TTCTCAA	human1
+barcode	TCACA	human2
+barcode	AACCTGG	human3
+barcode	AGACA	mock1
+barcode	ACGCG	mock2
+barcode	ACTCA	mock3
+barcode	TCTCCGT	soil1
+barcode	TGAAG	soil2
+barcode	TATCAA	soil3
+barcode	ACCGGAAG	mouse1
+barcode	TTAAGATT	mouse2
+barcode	TGGTTGGT	mouse3
