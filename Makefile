@@ -71,16 +71,19 @@ $(REFS)HMP_MOCK.fasta :
 	wget --no-check-certificate -N -P $(REFS) https://raw.githubusercontent.com/SchlossLab/Kozich_MiSeqSOP_AEM_2013/master/data/references/HMP_MOCK.fasta
 
 #align the mock community reference sequeces to the V3-V5 region, trim, and degap
-$(REFS)HMP_MOCK.v35.fasta $(REFS)HMP_MOCK.v35.align : $(REFS)HMP_MOCK.fasta $(REFS)silva.v35.align
-	mothur "#align.seqs(fasta=$(REFS)HMP_MOCK.fasta, reference=$(REFS)silva.v35.align);\
-			degap.seqs()";\
-	mv $(REFS)HMP_MOCK.ng.fasta $(REFS)HMP_MOCK.v35.fasta;\
+$(REFS)HMP_MOCK.v35.align : $(REFS)HMP_MOCK.fasta $(REFS)silva.v35.align
+	mothur "#align.seqs(fasta=$(REFS)HMP_MOCK.fasta, reference=$(REFS)silva.v35.align)";\
 	mv $(REFS)HMP_MOCK.align $(REFS)HMP_MOCK.v35.align;\
 	rm $(REFS)HMP_MOCK.align.report;\
 	rm $(REFS)HMP_MOCK.flip.accnos
 
+#$(REFS)HMP_MOCK.v35.fasta : $(REFS)HMP_MOCK.v35.align
+#	mothur "#degap.seqs(fasta=$<)";\
+#	mv $(REFS)HMP_MOCK.ng.fasta $(REFS)HMP_MOCK.v35.fasta;
+
+
+
 get_references : $(REFS)silva.v35.align\
-				$(REFS)HMP_MOCK.v35.fasta\
 				$(REFS)HMP_MOCK.v35.align\
 				$(REFS)trainset10_082014.v35.tax $(REFS)trainset10_082014.v35.fasta
 
@@ -210,8 +213,8 @@ $(PATH_TO_RAW_FLOW) : $$(subst flow,sff,$$@)
 #align.seqs
 #seq.error
 
-#mothur "#set.dir(output=data/basic);
-#		trim.seqs(fasta=data/enzyme1/enzyme1_mock1.fasta, oligos=data/iontorrent.oligos, bdiffs=1, pdiffs=2, flip=T, processors=8);
-#		unique.seqs(fasta=current);
-#		align.seqs(fasta=current, reference=data/reference/HMP_MOCK.v35.align);
-#		seq.error(fasta=current, name=current, reference=data/reference/HMP_MOCK.v35.align)"
+mothur "#set.dir(output=data/basic);
+		trim.seqs(fasta=data/enzyme1/enzyme1_mock1.fasta, oligos=data/iontorrent.oligos, bdiffs=1, pdiffs=2, flip=T, processors=8);
+		unique.seqs(fasta=current);
+		align.seqs(fasta=current, reference=data/references/HMP_MOCK.v35.align);
+		seq.error(fasta=current, name=current, reference=data/reference/HMP_MOCK.v35.align)"
