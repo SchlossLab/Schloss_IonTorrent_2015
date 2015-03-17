@@ -1,5 +1,17 @@
 ################################################################################
 #
+#	Part 0: Utilities
+#
+################################################################################
+
+# Utility function
+print-%:
+	@echo '$*=$($*)'
+
+
+
+################################################################################
+#
 #	Part 1: Get the reference files
 #
 #	Here we give instructions on how to get the necessary reference files that
@@ -70,3 +82,52 @@ $(REFS)HMP_MOCK.v35.fasta : $(REFS)HMP_MOCK.fasta $(REFS)silva.v35.align
 get_references : $(REFS)silva.v35.align\
 				$(REFS)HMP_MOCK.v35.fasta\
 				$(REFS)trainset10_082014.v35.tax $(REFS)trainset10_082014.v35.fasta
+
+
+################################################################################
+#
+#	Part 2: Get data ready
+#
+#	Here we take each of the mock community sff files and create a symbolic link
+#	so that they have a common naming structure for the rest of the analysis
+#
+################################################################################
+
+
+LONG_SFF = data/enzyme1/1267L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/144L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/174L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/187L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/208L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/212L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/355L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/411L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/559L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/600L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/622L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme1/731L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
+			data/enzyme2/1267L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/144L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/174L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/187L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/208L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/212L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/355L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/411L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/559L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/600L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/622L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff\
+			data/enzyme2/731L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+
+
+MOCK_SFF = mock1.sff mock2.sff mock3.sff
+MOUSE_SFF = mouse1.sff mouse2.sff mouse3.sff
+HUMAN_SFF = human1.sff human2.sff human3.sff
+SOIL_SFF = soil1.sff soil2.sff soil3.sff
+ALL_SFF = $(MOCK_SFF) $(MOUSE_SFF) $(HUMAN_SFF) $(SOIL_SFF)
+
+PATH_TO_SFF = $(addprefix data/enzyme1/enzyme1_,$(ALL_SFF))\
+				$(addprefix data/enzyme2/enzyme2_,$(ALL_SFF))\
+
+$(PATH_TO_SFF) : $(LONG_SFF) code/link_sff_files.sh
+	sh code/link_sff_files.sh
