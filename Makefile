@@ -89,11 +89,12 @@ get_references : $(REFS)silva.v35.align\
 #	Part 2: Get data ready
 #
 #	Here we take each of the mock community sff files and create a symbolic link
-#	so that they have a common naming structure for the rest of the analysis
+#	so that they have a common naming structure for the rest of the analysis.
+#	Then run sffinfo on each of the sff files.
 #
 ################################################################################
 
-
+# define the sff files...
 LONG_SFF = data/enzyme1/1267L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
 			data/enzyme1/144L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
 			data/enzyme1/174L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff\
@@ -129,5 +130,6 @@ ALL_SFF = $(MOCK_SFF) $(MOUSE_SFF) $(HUMAN_SFF) $(SOIL_SFF)
 PATH_TO_SFF = $(addprefix data/enzyme1/enzyme1_,$(ALL_SFF))\
 				$(addprefix data/enzyme2/enzyme2_,$(ALL_SFF))\
 
-$(PATH_TO_SFF) : $(LONG_SFF) code/link_sff_files.sh
-	sh code/link_sff_files.sh
+#rename the sff files
+$(PATH_TO_SFF) : $(LONG_SFF) code/copy_sff_files.sh
+	sh code/copy_sff_files.sh
