@@ -106,13 +106,13 @@ PATH_TO_SFF = $(addprefix data/enzyme1/enzyme1_,$(ALL_SFF))\
 
 #rename the sff files
 data/enzyme1/enzyme1_soil1.sff : data/enzyme1/208L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
-    cp $@ $<
+	cp $@ $<
 
 data/enzyme1/enzyme1_soil2.sff : data/enzyme1/174L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
-    cp $@ $<
+	cp $@ $<
 
 data/enzyme1/enzyme1_soil3.sff : data/enzyme1/144L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
-    cp $@ $<
+	cp $@ $<
 
 data/enzyme1/enzyme1_mouse1.sff : data/enzyme1/731L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
 	cp $@ $<
