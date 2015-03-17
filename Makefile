@@ -71,16 +71,17 @@ $(REFS)HMP_MOCK.fasta :
 	wget --no-check-certificate -N -P $(REFS) https://raw.githubusercontent.com/SchlossLab/Kozich_MiSeqSOP_AEM_2013/master/data/references/HMP_MOCK.fasta
 
 #align the mock community reference sequeces to the V3-V5 region, trim, and degap
-$(REFS)HMP_MOCK.v35.fasta : $(REFS)HMP_MOCK.fasta $(REFS)silva.v35.align
+$(REFS)HMP_MOCK.v35.fasta $(REFS)HMP_MOCK.v35.align : $(REFS)HMP_MOCK.fasta $(REFS)silva.v35.align
 	mothur "#align.seqs(fasta=$(REFS)HMP_MOCK.fasta, reference=$(REFS)silva.v35.align);\
 			degap.seqs()";\
 	mv $(REFS)HMP_MOCK.ng.fasta $(REFS)HMP_MOCK.v35.fasta;\
-	rm $(REFS)HMP_MOCK.align;\
+	mv $(REFS)HMP_MOCK.align $(REFS)HMP_MOCK.v35.align;\
 	rm $(REFS)HMP_MOCK.align.report;\
 	rm $(REFS)HMP_MOCK.flip.accnos
 
 get_references : $(REFS)silva.v35.align\
 				$(REFS)HMP_MOCK.v35.fasta\
+				$(REFS)HMP_MOCK.v35.align\
 				$(REFS)trainset10_082014.v35.tax $(REFS)trainset10_082014.v35.fasta
 
 
@@ -88,9 +89,8 @@ get_references : $(REFS)silva.v35.align\
 #
 #	Part 2: Get data ready
 #
-#	Here we take each of the mock community sff files and create a symbolic link
-#	so that they have a common naming structure for the rest of the analysis.
-#	Then run sffinfo on each of the sff files.
+#	Here we take each of the sff files and make a copy with a simpler name and
+#	then we run sffinfo on each of the sff files.
 #
 ################################################################################
 
@@ -193,3 +193,19 @@ $(PATH_TO_RAW_QUAL) : $$(subst qual,sff,$$@)
 .SECONDEXPANSION:
 $(PATH_TO_RAW_FLOW) : $$(subst flow,sff,$$@)
 	mothur "#sffinfo(sff=$<)"
+
+
+################################################################################
+#
+#	Part 3: Basic error analysis
+#
+#	Here we take each of the mock community fasta and qual files and calculate
+#	the error properties of the data. The data get dumped out to the basic
+#	folder
+#
+################################################################################
+
+#trim.seqs
+#unique.seqs
+#align.seqs
+#seq.error
