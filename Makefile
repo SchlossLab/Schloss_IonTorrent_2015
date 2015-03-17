@@ -209,3 +209,9 @@ $(PATH_TO_RAW_FLOW) : $$(subst flow,sff,$$@)
 #unique.seqs
 #align.seqs
 #seq.error
+
+#mothur "#set.dir(output=data/basic);
+#		trim.seqs(fasta=data/enzyme1/enzyme1_mock1.fasta, oligos=data/iontorrent.oligos, bdiffs=1, pdiffs=2, flip=T, processors=8);
+#		unique.seqs(fasta=current);
+#		align.seqs(fasta=current, reference=data/reference/HMP_MOCK.v35.align);
+#		seq.error(fasta=current, name=current, reference=data/reference/HMP_MOCK.v35.align)"
