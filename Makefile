@@ -184,12 +184,12 @@ PATH_TO_RAW_FLOW = $(subst sff,flow,$(PATH_TO_SFF))
 
 .SECONDEXPANSION:
 $(PATH_TO_RAW_FASTA) : $$(subst fasta,sff,$$@)
-	mothur "#sffinfo(fastq=$<)"
+	mothur "#sffinfo(sff=$<)"
 
 .SECONDEXPANSION:
 $(PATH_TO_RAW_QUAL) : $$(subst qual,sff,$$@)
-	mothur "#sffinfo(fastq=$<)"
+	mothur "#sffinfo(sff=$<)"
 
 .SECONDEXPANSION:
 $(PATH_TO_RAW_FLOW) : $$(subst flow,sff,$$@)
-	mothur "#sffinfo(fastq=$<)"
+	mothur "#sffinfo(sff=$<)"
