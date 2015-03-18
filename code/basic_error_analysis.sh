@@ -59,7 +59,7 @@ rm $BASIC_STUB.groups
 rm $BASIC_STUB.trim.align
 rm $BASIC_STUB.trim.align.report
 rm $BASIC_STUB.trim.flip.accnos
-rm $BASIC_STUB*mock1.filter
+rm $BASIC_STUB*.filter
 rm $BASIC_STUB.trim.filter.fasta
 rm $BASIC_STUB.HMP_MOCK.filter.fasta
 rm $BASIC_STUB.trim.filter.error.seq
@@ -69,3 +69,5 @@ rm $BASIC_STUB.trim.filter.error.qual.forward
 rm $BASIC_STUB.trim.filter.error.seq.forward
 rm $BASIC_STUB.trim.filter.error.count
 rm $BASIC_STUB.trim.filter.error.ref
+rm $BASIC_STUB.HMP_MOCK.8mer
+rm $BASIC_STUB.HMP_MOCK.align
