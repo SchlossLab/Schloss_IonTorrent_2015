@@ -208,11 +208,23 @@ $(PATH_TO_RAW_FLOW) : $$(subst flow,fasta,$$@)
 ################################################################################
 
 .SECONDEXPANSION:
-data/basic_%error.summary : $$(subst basic,raw,$$(subst trim.filter.error.summary,fasta,$$@))\
+data/basic_%filter.error.summary : $$(subst basic,raw,$$(subst trim.filter.error.summary,fasta,$$@))\
 				data/iontorrent.oligos\
 				data/references/HMP_MOCK.v35.align\
 				code/basic_error_analysis.sh
 	sh code/basic_error_analysis.sh $<
 
-#.SECONDEXPANSION:
-#data/basic_% : $$(subst basic,raw,$$(subst trim.filter.error.summary,fasta,$$@))\
+.SECONDEXPANSION:
+data/basic_%filter.error.matrix : $$(subst matrix,summary,$$@)
+
+.SECONDEXPANSION:
+data/basic_%filter.error.quality : $$(subst quality,summary,$$@)
+
+.SECONDEXPANSION:
+data/basic_%filter.error.rev.qual : $$(subst rev.qual,summary,$$@)
+
+.SECONDEXPANSION:
+data/basic_%filter.error.rev.seq : $$(subst rev.seq,summary,$$@)
+
+.SECONDEXPANSION:
+data/basic_%trim.summary : $$(subst summary,filter.error.summary,$$@)
