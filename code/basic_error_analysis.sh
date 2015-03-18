@@ -64,7 +64,6 @@ rm $BASIC_STUB.trim.filter.fasta
 rm $BASIC_STUB.HMP_MOCK.filter.fasta
 rm $BASIC_STUB.trim.filter.error.seq
 rm $BASIC_STUB.trim.filter.error.chimera
-rm $BASIC_STUB.trim.filter.error.quality
 rm $BASIC_STUB.trim.filter.error.qual.forward
 rm $BASIC_STUB.trim.filter.error.seq.forward
 rm $BASIC_STUB.trim.filter.error.count
