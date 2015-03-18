@@ -190,12 +190,11 @@ $(PATH_TO_RAW_FASTA) : $$(subst fasta,sff,$$@)
 	mothur "#sffinfo(sff=$<)"
 
 .SECONDEXPANSION:
-$(PATH_TO_RAW_QUAL) : $$(subst qual,sff,$$@) $$(subst fasta,sff,$$@)
-	mothur "#sffinfo(sff=$<)"
+$(PATH_TO_RAW_QUAL) : $$(subst qual,fasta,$$@)
 
 .SECONDEXPANSION:
-$(PATH_TO_RAW_FLOW) : $$(subst flow,sff,$$@)
-	mothur "#sffinfo(sff=$<)"
+$(PATH_TO_RAW_FLOW) : $$(subst flow,fasta,$$@)
+
 
 
 ################################################################################
