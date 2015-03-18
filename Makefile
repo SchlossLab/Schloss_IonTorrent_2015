@@ -134,40 +134,40 @@ data/raw_enzyme1/mock2.sff : data/raw_enzyme1/622L.R_2015_02_03_14_44_36_user_C3
 data/raw_enzyme1/mock3.sff : data/raw_enzyme1/600L.R_2015_02_03_14_44_36_user_C33-134-Schloss-16S-L95M-XPD.sff
 	cp $< $@
 
-data/enzyme2/soil1.sff : data/enzyme2/208L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/soil1.sff : data/raw_enzyme2/208L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/soil2.sff : data/enzyme2/174L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/soil2.sff : data/raw_enzyme2/174L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/soil3.sff : data/enzyme2/144L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/soil3.sff : data/raw_enzyme2/144L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/mouse1.sff : data/enzyme2/731L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/mouse1.sff : data/raw_enzyme2/731L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/mouse2.sff : data/enzyme2/355L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/mouse2.sff : data/raw_enzyme2/355L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/mouse3.sff : data/enzyme2/187L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/mouse3.sff : data/raw_enzyme2/187L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/human1.sff : data/enzyme2/411L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/human1.sff : data/raw_enzyme2/411L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/human2.sff : data/enzyme2/212L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/human2.sff : data/raw_enzyme2/212L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/human3.sff : data/enzyme2/1267L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/human3.sff : data/raw_enzyme2/1267L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/mock1.sff : data/enzyme2/559L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/mock1.sff : data/raw_enzyme2/559L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/mock2.sff : data/enzyme2/622L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/mock2.sff : data/raw_enzyme2/622L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
-data/enzyme2/mock3.sff : data/enzyme2/600L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
+data/raw_enzyme2/mock3.sff : data/raw_enzyme2/600L.R_2015_02_05_14_50_42_user_C35-831-Schloss-16S-PSP4-555K-XPD.sff
 	cp $< $@
 
 # define the sff files...
