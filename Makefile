@@ -207,6 +207,16 @@ $(PATH_TO_RAW_FLOW) : $$(subst flow,fasta,$$@)
 #
 ################################################################################
 
+BASIC_PATH = data/basic_enzyme1 data/basic_enzyme2
+MOCKS = mock1 mock2 mock3
+
+BASIC_ERROR_SUMMARY = $(addsuffix .trim.filter.error.summary, $(foreach MOCK, $(MOCKS),$(foreach PATH, $(BASIC_PATH), $(PATH)/$(MOCK))))
+BASIC_ERROR_QUALITY = $(subst summary,quality,$(BASIC_ERROR_SUMMARY))
+BASIC_ERROR_MATRIX = $(subst summary,matrix,$(BASIC_ERROR_SUMMARY))
+BASIC_ERROR_REVQUAL = $(subst summary,rev.qual,$(BASIC_ERROR_SUMMARY))
+BASIC_ERROR_REVSEQ = $(subst summary,rev.seq,$(BASIC_ERROR_SUMMARY))
+BASIC_SUMMARY = $(subst filter.error.summary,summary,$(BASIC_ERROR_SUMMARY))
+
 .SECONDEXPANSION:
 data/basic_%filter.error.summary : $$(subst basic,raw,$$(subst trim.filter.error.summary,fasta,$$@))\
 				data/iontorrent.oligos\
@@ -215,16 +225,16 @@ data/basic_%filter.error.summary : $$(subst basic,raw,$$(subst trim.filter.error
 	sh code/basic_error_analysis.sh $<
 
 .SECONDEXPANSION:
-data/basic_%filter.error.matrix : $$(subst matrix,summary,$$@)
+$(BASIC_ERROR_MATRIX) : $$(subst matrix,summary,$$@)
 
 .SECONDEXPANSION:
-data/basic_%filter.error.quality : $$(subst quality,summary,$$@)
+$(BASIC_ERROR_QUALITY) : $$(subst quality,summary,$$@)
 
 .SECONDEXPANSION:
-data/basic_%filter.error.rev.qual : $$(subst rev.qual,summary,$$@)
+$(BASIC_ERROR_REVQUAL) : $$(subst rev.qual,summary,$$@)
 
 .SECONDEXPANSION:
-data/basic_%filter.error.rev.seq : $$(subst rev.seq,summary,$$@)
+$(BASIC_ERROR_REVSEQ) : $$(subst rev.seq,summary,$$@)
 
 .SECONDEXPANSION:
-data/basic_%trim.summary : $$(subst summary,filter.error.summary,$$@)
+$(BASIC_SUMMARY) : $$(subst summary,filter.error.summary,$$@)
