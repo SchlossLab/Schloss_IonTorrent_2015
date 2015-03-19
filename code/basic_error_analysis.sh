@@ -28,13 +28,13 @@
 ################################################################################
 
 FASTA=$1
-#FASTA=data/raw_enzyme1/mock1.fasta
+FASTA=data/raw_enzyme1/soil1.fasta
 QUAL=$(echo $FASTA | sed -e s/fasta/qual/)
 
-RAW_PATH=$(echo $FASTA | sed -e 's/\/mock.*//')
+RAW_PATH=$(echo $FASTA | sed -e 's/\/\w*.fasta//')
 BASIC_PATH=$(echo $RAW_PATH | sed -e 's/raw/basic/')
 
-FILE_STUB=$(echo $FASTA | sed -e 's/.*\/\(mock.*\).fasta/\1/')
+FILE_STUB=$(echo $FASTA | sed -e 's/.*\/\(\w*\).fasta/\1/')
 BASIC_STUB=$BASIC_PATH/$FILE_STUB
 
 REF=$BASIC_STUB.HMP_MOCK.align
@@ -46,7 +46,7 @@ cp data/references/HMP_MOCK.v35.align $REF
 
 mothur "#set.dir(output=$BASIC_PATH);
     trim.seqs(fasta=$FASTA, qfile=$QUAL, oligos=data/iontorrent.oligos, bdiffs=1, pdiffs=2, flip=T, processors=8);
-    align.seqs(fasta=current, reference=$REF, processors=12);
+    align.seqs(fasta=current, reference=$REF);
     summary.seqs();
     filter.seqs(fasta=current-$REF, vertical=T);
     seq.error(fasta=current, qfile=current, report=$REPORT, reference=$FILTER_REF);"
