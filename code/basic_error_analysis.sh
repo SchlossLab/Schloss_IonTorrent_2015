@@ -28,7 +28,7 @@
 ################################################################################
 
 FASTA=$1
-FASTA=data/raw_enzyme1/soil1.fasta
+#FASTA=data/raw_enzyme1/soil1.fasta
 QUAL=$(echo $FASTA | sed -e s/fasta/qual/)
 
 RAW_PATH=$(echo $FASTA | sed -e 's/\/\w*.fasta//')
