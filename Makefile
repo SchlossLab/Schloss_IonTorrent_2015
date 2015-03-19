@@ -208,7 +208,7 @@ $(PATH_TO_RAW_FLOW) : $$(subst flow,fasta,$$@)
 ################################################################################
 
 BASIC_PATH = data/basic_enzyme1 data/basic_enzyme2
-MOCKS = mock1 mock2 mock3
+MOCKS = mock1 mouse1 human1 soil1
 
 BASIC_ERROR_SUMMARY = $(addsuffix .trim.filter.error.summary, $(foreach MOCK, $(MOCKS),$(foreach PATH, $(BASIC_PATH), $(PATH)/$(MOCK))))
 BASIC_ERROR_QUALITY = $(subst summary,quality,$(BASIC_ERROR_SUMMARY))
